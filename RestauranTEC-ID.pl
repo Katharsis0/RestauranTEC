@@ -51,7 +51,7 @@ analizar_input(Input) :-
     menu(Plato, Restaurante, _), 
     write(Restaurante), nl. 
 
-%Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia ***
+%Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia 
 analizar_input(Input) :-
     restaurante([Restaurante, _, [Provincia|_], _, _]),
     sub_string(Input, _, _, _, Provincia),
@@ -67,17 +67,24 @@ analizar_input(Input) :-
 %Analizar segun restaurante -> mostrar capacidad
 analizar_input(Input) :-
     miembro("capacidad", Input),
-    restaurante([Restaurante, _, _, Capacidad, _]), %verificar que el restaurante esta en la base de datos
+    restaurante([Restaurante, _, _, Capacidad, _]),
     sub_string(Input, _, _, _, Restaurante),
     write("Capacidad: "), write(Capacidad), nl.
 
 %Analizar segun restaurante -> mostrar direccion 
 analizar_input(Input) :-
     miembro("direccion", Input),
-    restaurante([Restaurante, _, Direccion, _, _]), %verificar que el restaurante esta en la base de datos
+    restaurante([Restaurante, _, Direccion, _, _]), 
     sub_string(Input, _, _, _, Restaurante),
     write(Direccion), nl.
-    
+
+analizar_input(Input) :-
+    miembro("sabores", Input),
+    miembro(Plato, Input),
+    miembro(Restaurante, Input),
+    menu(Plato, Restaurante, Sabores),
+    write(Sabores), nl.
+
 
 
 
