@@ -5,7 +5,7 @@
 
 % forma --> restaurante(['nombre de restaurante', tipoComida, [provincia,direccion], capacidad, [disposiciones]])
 
-restaurante(['Bella Italia',italiana,['San José','Centro Comercial Paco, Escazú 10201'], 20, ['Disposiciones del Rest. : No se permiten mascotas. La vestimenta es formal.']]).
+restaurante(['Bella Italia',italiana,['San Jose','Centro Comercial Paco, Escazu 10201'], 20, ['Disposiciones del Rest. : No se permiten mascotas. La vestimenta es formal.']]).
 
 restaurante(['Italianisimo',italiana,['Alajuela', 'Barrio San Antonio, Ciudad Quesada 21001'], 20, ['Disposiciones del Rest. : Utilizar mascarilla.']]).
 

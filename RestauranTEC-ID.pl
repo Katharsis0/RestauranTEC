@@ -1,10 +1,11 @@
 :-include('RestauranTEC-DB.pl').
 
+%verificar si una palabra pertenece a una cadena
 miembro(Palabra, Cadena) :-
     sub_atom(Cadena, _, _, _, Palabra).
 
 %Mostrar tipos de comida
-analizar_input(Input) :- %falta eliminar los que se repiten
+analizar_input(Input) :-
     miembro("tipos de comida", Input),
     listaTiposComida(Tipos),
     write(Tipos), nl.
@@ -47,8 +48,42 @@ mostrar_platos([Plato|Platos]) :-
 analizar_input(Input) :-
     miembro("restaurantes", Input),
     miembro(Plato, Input),
-    menu(Plato, Restaurante, _), % Obtener el menú del restaurante
-    write(Restaurante), nl. % Mostrar el plato del menú
+    menu(Plato, Restaurante, _), 
+    write(Restaurante), nl. 
+
+%Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia ***
+analizar_input(Input) :-
+    restaurante([Restaurante, _, [Provincia|_], _, _]),
+    sub_string(Input, _, _, _, Provincia),
+    write(Restaurante),nl.
+
+%Analizar segun restaurante -> mostrar disposiciones 
+analizar_input(Input) :-
+    miembro("disposiciones", Input),
+    restaurante([Restaurante, _, _, Capacidad, Disposicion]), %verificar que el restaurante esta en la base de datos
+    sub_string(Input, _, _, _, Restaurante),
+    write(Disposicion), nl.
+
+%Analizar segun restaurante -> mostrar capacidad
+analizar_input(Input) :-
+    miembro("capacidad", Input),
+    restaurante([Restaurante, _, _, Capacidad, _]), %verificar que el restaurante esta en la base de datos
+    sub_string(Input, _, _, _, Restaurante),
+    write("Capacidad: "), write(Capacidad), nl.
+
+%Analizar segun restaurante -> mostrar direccion 
+analizar_input(Input) :-
+    miembro("direccion", Input),
+    restaurante([Restaurante, _, Direccion, _, _]), %verificar que el restaurante esta en la base de datos
+    sub_string(Input, _, _, _, Restaurante),
+    write(Direccion), nl.
+    
+
+
+
+
+
+
 
 
 
