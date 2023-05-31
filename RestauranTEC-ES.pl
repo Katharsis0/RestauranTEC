@@ -12,13 +12,12 @@ header():-
     %parsear input de usuario
 
 usuario_input(Cadena) :-
-    %Consulta el tipo de comida que el usuario desea
     nl,
-    %write('¿Que se te antoja comer? '),
+    write('¿Quieres una recomendacion o tienes algo en mente?'),
     read_line_to_codes(user_input, InputCodes),
     atom_codes(Cadena, InputCodes),
-    analizar_input(Cadena).
-
-%parsear input de usuario
+    (miembro("recomendacion", Cadena)->
+            recomendar();
+            analizar_input(Cadena)).
 
 
