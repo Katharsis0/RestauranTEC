@@ -20,10 +20,10 @@ analizar_input(Input) :-
 
 %Analizar segun el tipo de comida -> dar opciones de restaurantes del tipo
 analizar_input(Input) :-
-    miembro("restaurantes", Input),
+    (miembro("restaurantes", Input); miembro("quiero", Input)),
     miembro(Tipo, Input), 
     restaurante([Restaurante, Tipo, _, _, _]),
-    write(Restaurante), nl. 
+    write("Te ofrecemos el restaurante "), write(Restaurante), nl.
 
 %Analizar segun restaurante -> mostrar menu
 analizar_input(Input) :-
@@ -34,16 +34,16 @@ analizar_input(Input) :-
 
 %Analizar segun la comida especifica ->mostrar restaurantes que ofrecen esa comida
 analizar_input(Input) :-
-    miembro("restaurantes", Input),
+    (miembro("restaurantes", Input); miembro("quiero", Input)),
     miembro(Plato, Input),
     menu(Plato, Restaurante, _), 
-    write(Restaurante), nl. 
+    write("Te ofrecemos el restaurante "), write(Restaurante), nl.
 
 %Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia 
 analizar_input(Input) :-
     restaurante([Restaurante, _, [Provincia|_], _, _]),
     sub_string(Input, _, _, _, Provincia),
-    write(Restaurante),nl.
+    write("Te ofrecemos el restaurante "), write(Restaurante),nl.
 
 %Analizar segun restaurante -> mostrar disposiciones 
 analizar_input(Input) :-
@@ -61,7 +61,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar direccion 
 analizar_input(Input) :-
-    miembro("direccion", Input),
+    (miembro("direccion", Input), miembro("donde", Input)),
     restaurante([Restaurante, _, Direccion, _, _]), 
     sub_string(Input, _, _, _, Restaurante),
     write(Direccion), nl.
@@ -79,6 +79,8 @@ recomendar :-
     write("Claro! ¿Que tipo de comida desea comer? Ofrecemos las siguientes opciones: "), nl,
     analizar_input("tipos de comida"),
     read(Tipo),
+
+    %condicional para verificar validez del write
 
     write("¿En que zona desea comer? "), nl,
     read(Provincia),
@@ -101,6 +103,7 @@ recomendar :-
 
     write("¿Cuantas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
     read(Unidades),
+    write("Perfecto, "), write(Unidades), write(" de "), write(Platillo), write(Sabor), write("anotado!"),
 
     write("¿Desea algo mas? A continuacion le mostramos el menu de "), write(Restaurante), nl,
     mostrar_menu(Restaurante),
