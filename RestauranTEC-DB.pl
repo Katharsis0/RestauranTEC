@@ -36,13 +36,13 @@ restaurante(['Espacio Picante', asiatica, ['Heredia', '150 m este de la Soda Lal
 
 menu(hamburguesa, 'La Casita Frita', [sencilla, doble, 'con tocineta']). %Nota: los atomos pueden ser frases pero deben ir entre comillas
 
-menu('papas fritas', 'La Casita Frita', [regulares, 'con queso', 'con salsa/s', cargadas]).
+menu(papas, 'La Casita Frita', [regulares, 'con queso', 'con salsa/s', cargadas]).
 
-menu('pollo frito', 'La Casita Frita', [entero, popcorn, tenders]).
+menu(pollo, 'La Casita Frita', [entero, popcorn, tenders]).
 
-menu(hamburguesa, 'Monchis', ['tex mex', clasica, super-monchis]). %Los sinonimos se pueden reconocer en la funcion de lectura
+menu(hamburguesa, 'Monchis', ['tex mex', clasica, 'super monchis']). %Los sinonimos se pueden reconocer en la funcion de lectura
 
-menu('papas fritas', 'Monchis', ['de la casa', arregladas, clasicas]).
+menu(papas , 'Monchis', ['de la casa', arregladas, clasicas]).
 
 menu(fresco, 'Monchis', ['agua de jamaica', gaseosas, 'limonada con hierbabuena']).
 
