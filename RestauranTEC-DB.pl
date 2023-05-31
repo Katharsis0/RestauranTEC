@@ -21,7 +21,7 @@ restaurante(['La Fabbrica', italiana, ['Heredia', 'Paseo de Las Flores, Heredia 
 
 restaurante(['Tacopedia', mexicana, ['San José', 'Calle 114, Rancho Luna, San José 10108'], 20, ['Disposiciones del Rest: Venga con hambre.']]).
 
-restante(['Las Catrinas', mexicana, ['Heredia', 'Calle Carolina, Miraflores, San Joaquín 40601'], 20, ['Disposiciones del Rest: Jueves de Chilaquiles']]).
+restaurante(['Las Catrinas', mexicana, ['Heredia', 'Calle Carolina, Miraflores, San Joaquín 40601'], 20, ['Disposiciones del Rest: Jueves de Chilaquiles']]).
 
 restaurante(['Espacio Picante', asiatica, ['Heredia', '150 m este de la Soda Lali, Av. 2, Heredia 40802'], 20, ['Disposiciones del Rest: Advertimos que usamos los mejores y más picantes chiles del mercado.']]).
 
