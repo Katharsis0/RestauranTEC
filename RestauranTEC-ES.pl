@@ -1,7 +1,6 @@
-%ejemplos de lo que se espera de entradas
+:-consult("RestautanTEC-BNF.pl").
+:-consult("RestautanTEC-DB.pl").
 
-:-consult("rtecbnf.pl").
-:-consult("rtecdb.pl").
 
 inicio():-
     header(),
@@ -47,3 +46,7 @@ cantidadPersonas() :-
     write('¿Para cuantas personas?'), 
     read(X),
     write(X).
+
+%parsear input de usuario
+
+
