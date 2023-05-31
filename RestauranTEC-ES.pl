@@ -3,7 +3,8 @@
 
 inicio():-
     header(),
-    usuario_input(Cadena). %pizza, ensalada, pasta.
+    usuario_input(Cadena),
+    usuario_input_aux(). %pizza, ensalada, pasta.
     
 
 header():-
@@ -18,6 +19,15 @@ usuario_input(Cadena) :-
     atom_codes(Cadena, InputCodes),
     (miembro("recomendacion", Cadena)->
             recomendar();
-            analizar_input(Cadena)).
+            analizar_input(Cadena)),
+            usuario_input_aux().
+
+usuario_input_aux() :-
+    nl,
+    read_line_to_codes(user_input, InputCodes),
+    atom_codes(Cadena, InputCodes),
+    analizar_input(Cadena), nl,
+    usuario_input_aux().
+
 
 
