@@ -5,7 +5,7 @@
 
 inicio():-
     header(),
-    tipoComida(), %pizza, ensalada, pasta..
+    tipoComida(), %pizza, ensalada, pasta.
     datosPedido(), %napolitana, cesar, raviolis
     tipoRefresco(), %Coca, papaya, horchata, pacha con jet
     lugarHora(), %ubicacion y hora disponibles
@@ -24,7 +24,6 @@ tipoComida() :-
     %atomic.list.concat(L,' ',X),
     %verificarOracion(X),
     write(X).
-
 datosPedido() :-
     nl,
     write('¿Que tipo de X? '), 
