@@ -91,12 +91,6 @@ menu(fresco, 'El Chante Vegano', ['natuales en agua', 'especialidad cruelty free
 
 
 
-%rellenar con los demas
-
-
-
-
-
 %                   ______________________________________________________________________________
 %__________________/ Funciones de Utilidad
 

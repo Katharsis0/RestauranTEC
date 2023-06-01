@@ -1,6 +1,5 @@
 :- include('RestauranTEC-DB.pl').
 
-
 %Verificar si una palabra pertenece a una cadena
 miembro(Palabra, Cadena) :-
     sub_atom(Cadena, _, _, _, Palabra).
@@ -84,7 +83,7 @@ recomendar :-
     write("Lo sentimos tu respuesta no es valida").
 
 
-%valida el tipo de comida y pregunta la zona
+%Valida el tipo de comida y pregunta la zona
 get_tipo :-
     read(Input),
     (miembro(Tipo, Input), restaurante([_, Tipo, _, _, _]) ->
@@ -93,7 +92,7 @@ get_tipo :-
         get_provincia(Provincia, Tipo); 
         (write('El tipo de comida que ingreso no es valido. Por favor, intente nuevamente.'), nl, get_tipo)).
 
-%valida la zona y pregunta el restaurante
+%Valida la zona y pregunta el restaurante
 get_provincia(Input, Tipo) :-
     (restaurante([_, _, [Provincia|_], _, _]), sub_string(Input, _, _, _, Provincia) ->
         write("Le recomendamos los siguientes restaurantes: "), nl,
