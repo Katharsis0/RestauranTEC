@@ -21,6 +21,7 @@ usuario_input(Cadena) :-
     write('¿Quieres una recomendacion o tienes algo en mente?'),
     read_line_to_codes(user_input, InputCodes),
     atom_codes(Cadena, InputCodes),
+    
     (miembro("recomendacion", Cadena)->
             recomendar();
             %meter parte de sebas
