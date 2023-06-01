@@ -17,40 +17,6 @@ analizar_input(Input) :-
     listaRestaurantes(Restaurantes),
     write(Restaurantes), nl.
 
-%Analizar segun el tipo de comida -> dar opciones de restaurantes del tipo
-analizar_input(Input) :-
-    (miembro("restaurantes", Input); miembro("quiero", Input)),
-    miembro(Tipo, Input), 
-    restaurante([Restaurante, Tipo, _, _, _]),
-    write("Te ofrecemos el restaurante "), write(Restaurante), nl.
-
-%Analizar segun restaurante -> mostrar menu
-analizar_input(Input) :-
-    miembro("menu", Input),
-    restaurante([Restaurante, _, _, _, _]), %verificar que el restaurante esta en la base de datos
-    sub_string(Input, _, _, _, Restaurante),
-    mostrar_menu(Restaurante).
-
-%Analizar segun la comida especifica ->mostrar restaurantes que ofrecen esa comida
-analizar_input(Input) :-
-    (miembro("restaurantes", Input); miembro("quiero", Input)),
-    miembro(Plato, Input),
-    menu(Plato, Restaurante, _), 
-    write("Te ofrecemos el restaurante "), write(Restaurante), nl.
-
-%Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia 
-analizar_input(Input) :-
-    restaurante([Restaurante, _, [Provincia|_], _, _]),
-    sub_string(Input, _, _, _, Provincia),
-    write("Te ofrecemos el restaurante "), write(Restaurante),nl.
-
-%Analizar segun restaurante -> mostrar disposiciones 
-analizar_input(Input) :-
-    miembro("disposiciones", Input),
-    restaurante([Restaurante, _, _, _, Disposicion]), %verificar que el restaurante esta en la base de datos
-    sub_string(Input, _, _, _, Restaurante),
-    write(Disposicion), nl.
-
 %Analizar segun restaurante -> mostrar capacidad
 analizar_input(Input) :-
     miembro("capacidad", Input),
@@ -68,10 +34,51 @@ analizar_input(Input) :-
 %Analizar segun plato y restaurante -> mostrar sabores
 analizar_input(Input) :-
     miembro("sabores", Input),
+    miembro("en", Input),
     miembro(Plato, Input),
     miembro(Restaurante, Input),
-    get_sabores(Plato, Restaurante).
+    show_sabores(Plato, Restaurante).
 
+%Analizar segun el tipo de comida -> dar opciones de restaurantes del tipo
+analizar_input(Input) :-
+    miembro(Tipo, Input), 
+    restaurante([Restaurante, Tipo, _, _, _]),
+    findall(Restaurante, restaurante([Restaurante, Tipo, _, _, _]), Restaurantes),
+    write("Te ofrecemos los siguientes restaurantes: "), nl, 
+    mostrar_lista(Restaurantes).
+
+%Analizar segun restaurante -> mostrar menu
+analizar_input(Input) :-
+    miembro("menu", Input),
+    restaurante([Restaurante, _, _, _, _]), %verificar que el restaurante esta en la base de datos
+    sub_string(Input, _, _, _, Restaurante),
+    show_menu(Restaurante).
+
+%Analizar segun la comida especifica ->mostrar restaurantes que ofrecen esa comida
+analizar_input(Input) :-
+    menu(Plato, _, _), 
+    miembro(Plato, Input),
+    findall(Restaurante, menu(Plato, Restaurante, _), Restaurantes),
+    write("Te ofrecemos los siguientes restaurantes: "), nl,
+    mostrar_lista(Restaurantes).
+
+%Analizar segun la provincia ->mostrar restaurantes que estan en esa provincia 
+analizar_input(Input) :-
+    restaurante([_, _, [Provincia|_], _, _]),
+    sub_string(Input, _, _, _, Provincia),
+    findall(Restaurante, restaurante([Restaurante, _, [Provincia|_], _, _]), Restaurantes),
+    mostrar_lista(Restaurantes).
+
+%Analizar segun restaurante -> mostrar disposiciones 
+analizar_input(Input) :-
+    miembro("disposiciones", Input),
+    restaurante([Restaurante, _, _, _, Disposicion]), %verificar que el restaurante esta en la base de datos
+    sub_string(Input, _, _, _, Restaurante),
+    write(Disposicion), nl.
+
+analizar_input(Input) :-
+    write("Lo siento, no entiendo que quieres decir con "), write(Input), 
+    write("Por favor ingresa una opcion valida"), nl.
 
 %Si el usuario desea una recomendacion, inicia un chat de preguntas
 recomendar :-
@@ -155,18 +162,35 @@ get_sabor(Input, Platillo, Restaurante) :-
 
 %Mostrar restaurantes en una provincia y segun un tipo de comida
 show_restaurantes(Tipo, Provincia) :-
-    restaurante([Restaurante, Tipo, [Provincia|_], _, _]),
-    write(Restaurante), nl.
+    findall(Restaurante, restaurante([Restaurante, Tipo, [Provincia|_], _, _]), Restaurantes),
+    mostrar_lista(Restaurantes).
+
+mostrar_lista([]).
+mostrar_lista([X|Resto]) :-
+    write(X), nl,
+    mostrar_lista(Resto).
 
 %Mostrar platillos de un restaurante
 show_platillos(Restaurante) :-
-    menu(Platillo, Restaurante, _),
-    write(Platillo), nl.
+    findall(Platillo, menu(Platillo, Restaurante, _), Platillos),
+    mostrar_lista(Platillos).
 
 %Mostrar sabores de un platillo de un restaurante
 show_sabores(Platillo, Restaurante) :-
     menu(Platillo, Restaurante, Sabores),
     write(Sabores), nl.
+
+%Mostrar menu de un restaurante
+show_menu(Restaurante) :-
+    findall(Platillo-Sabores, menu(Platillo, Restaurante, Sabores), PlatillosConSabores),
+    mostrar_menu(PlatillosConSabores).
+
+mostrar_menu([]).
+mostrar_menu([Platillo-Sabores|Resto]) :-
+    write("Platillo: "), write(Platillo), nl,
+    write("Sabores: "), write(Sabores), nl,
+    mostrar_menu(Resto).
+
 
 %Mostrar disposiciones y capacidad de un restaurante
 get_disposiciones(Restaurante) :-
@@ -179,18 +203,6 @@ get_direccion(Restaurante) :-
     restaurante([Restaurante, _, Direccion, _, _]), 
     write(Direccion), nl.
 
-%Mostrar el menu de un restaurante
-mostrar_menu(Restaurante) :-
-    menu(Tipo, Restaurante, Platos),
-    format("Menu de ~w:\n", [Restaurante]),
-    format("~w:\n", [Tipo]),
-    mostrar_platos(Platos).
-
-%Mostrar platos 
-mostrar_platos([]).
-mostrar_platos([Plato|Platos]) :-
-    format("- ~w\n", [Plato]),
-    mostrar_platos(Platos).
 
 
 

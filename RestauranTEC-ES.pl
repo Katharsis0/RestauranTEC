@@ -3,7 +3,7 @@
 
 inicio():-
     header(),
-    usuario_input(Cadena),
+    usuario_input,
     usuario_input_aux(). 
     
 
@@ -16,17 +16,19 @@ el usuario puede elegir, por recomendaciones directas o preguntas aleatorias par
 mas adecuada.
 */
 
-usuario_input(Cadena) :-
+usuario_input :-
     nl,
-    write('¿Quieres una recomendacion o tienes algo en mente?'),
+    write('¿Quieres una recomendacion o tienes algo en mente?'), nl,
     read_line_to_codes(user_input, InputCodes),
     atom_codes(Cadena, InputCodes),
     
     (miembro("recomendacion", Cadena)->
-            recomendar();
+            recomendar;
             %meter parte de sebas
             analizar_input(Cadena)),
-            usuario_input_aux().
+            usuario_input_aux(),
+    miembro("exit", Cadena), halt.
+    
 
 /*En caso de que el usuario decida hacer preguntas aleatorias u oraciones en busca de 
 infomacion o recomendaciones se necesita una conversacion continua, para ello 
