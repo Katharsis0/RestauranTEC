@@ -61,7 +61,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar direccion 
 analizar_input(Input) :-
-    (miembro("direccion", Input), miembro("donde", Input)),
+    (miembro("direccion", Input); miembro("donde", Input)),
     restaurante([Restaurante, _, Direccion, _, _]), 
     sub_string(Input, _, _, _, Restaurante),
     write(Direccion), nl.

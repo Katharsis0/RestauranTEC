@@ -25,14 +25,22 @@ restaurante(['Las Catrinas', mexicana, ['Heredia', 'Calle Carolina, Miraflores, 
 
 restaurante(['Espacio Picante', asiatica, ['Heredia', '150 m este de la Soda Lali, Av. 2, Heredia 40802'], 20, ['Disposiciones del Rest: Advertimos que usamos los mejores y más picantes chiles del mercado.']]).
 
-%rellenar con las demas
+restaurante(['Las delicias del Puerto', marisqueria, ['Puntarenas', 'Costado Oeste Del Hotel Tioga Paseo de Los Turistas Barrio El Carmen Puntarenas, Puntarenas 60101 Costa Rica'], 20, ['Disposiciones del Rest: Ambiente familiar con los mejores platillos de nuestras costas.']]).
 
+restaurante(['Caballo Blanco', costarricense, ['Puntarenas', 'Ruta #1 , Km 131 Cruce Miramar 7 Km al norte, Puntarenas Aranjuez Costa Rica'], 20, ['Disposiciones del Rest: Ofrecemos comida Latina, Marisco, Centroamericana, Costarricense y opciones veganas']]).
+
+restaurante(['El Chante Vegano', vegana, ['Alajuela', '25 mtrs Oeste de Oficina De Correos Alajuela Alajuela, 20101'], 20, ['Disposiciones del Rest: Restaurante libre de crueldad animal']]).
 
 %                   ______________________________________________________________________________
 %__________________/ Menú de cada restaurante
 
 % forma --> menu([platillo, restaurante, ['Sabores']]).
 %se agrega el singular y el plural para que sean reconocidos
+menu(desayuno, 'Las delicias del Puerto', ['churchil de frutas', 'gallo pinto', 'gallos de queso']).
+
+menu(ceviche, 'Caballo Blanco', ['de mango', sencillo, 'supremo con langosta y calamar']).
+
+menu(tacos, 'El Chante Vegano', ['de birria con hongos', 'de carne de soja']).
 
 menu(hamburguesa, 'La Casita Frita', [sencilla, doble, 'con tocineta']). %Nota: los atomos pueden ser frases pero deben ir entre comillas
 

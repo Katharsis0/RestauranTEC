@@ -80,6 +80,9 @@ adjetivo([asiatica|O],O).
 adjetivo([mexicana|O],O).
 adjetivo([italianas|O],O).
 adjetivo([bocas|O],O).
+adjetivo([marisqueria|O],O).
+adjetivo([costarricense|O],O).
+adjetivo([vegana|O],O).
 
 
 

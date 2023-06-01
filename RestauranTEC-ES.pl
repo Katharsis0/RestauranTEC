@@ -23,6 +23,7 @@ usuario_input(Cadena) :-
     atom_codes(Cadena, InputCodes),
     (miembro("recomendacion", Cadena)->
             recomendar();
+            %meter parte de sebas
             analizar_input(Cadena)),
             usuario_input_aux().
 
