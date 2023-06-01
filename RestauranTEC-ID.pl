@@ -1,11 +1,11 @@
 :- include('RestauranTEC-DB.pl').
 
 
-%verificar si una palabra pertenece a una cadena
+%Verificar si una palabra pertenece a una cadena
 miembro(Palabra, Cadena) :-
     sub_atom(Cadena, _, _, _, Palabra).
 
-%Mostrar tipos de comida
+%Mostrar todos los tipos de comida
 analizar_input(Input) :-
     miembro("tipos de comida", Input),
     listaTiposComida(Tipos),
@@ -74,7 +74,7 @@ analizar_input(Input) :-
     get_sabores(Plato, Restaurante).
 
 
-%Desea una recomendacion
+%Si el usuario desea una recomendacion, inicia un chat de preguntas
 recomendar :-
     write("Claro! ¿Que tipo de comida desea comer? Ofrecemos las siguientes opciones: "), nl,
     analizar_input("tipos de comida"), %mostrar al usuario todos los tipos de comida
@@ -84,6 +84,7 @@ recomendar :-
     write("Lo sentimos tu respuesta no es valida").
 
 
+%valida el tipo de comida y pregunta la zona
 get_tipo :-
     read(Input),
     (miembro(Tipo, Input), restaurante([_, Tipo, _, _, _]) ->
@@ -92,6 +93,7 @@ get_tipo :-
         get_provincia(Provincia, Tipo); 
         (write('El tipo de comida que ingreso no es valido. Por favor, intente nuevamente.'), nl, get_tipo)).
 
+%valida la zona y pregunta el restaurante
 get_provincia(Input, Tipo) :-
     (restaurante([_, _, [Provincia|_], _, _]), sub_string(Input, _, _, _, Provincia) ->
         write("Le recomendamos los siguientes restaurantes: "), nl,
@@ -103,6 +105,7 @@ get_provincia(Input, Tipo) :-
         read(NewProvincia),
         get_provincia(NewProvincia, Tipo))).
 
+%valida el restaurante y pregunta el platillo
 get_restaurante(Input) :-
     (restaurante([Restaurante, _, _, _, _]), sub_string(Input, _, _, _, Restaurante) ->
         write("A continuacion le indicamos la direccion exacta de ese restaurante: "), nl,
@@ -117,6 +120,7 @@ get_restaurante(Input) :-
          read(NewRestaurante),
          get_restaurante(NewRestaurante))).
 
+%valida el platillo y pregunta el sabor
 get_platillo(Input, Restaurante) :-
     (miembro(Platillo, Input), menu(Platillo, Restaurante, _) ->
         write("Para ese platillo, "), write(Restaurante), write(", ofrece los siguientes sabores:"), nl,
@@ -128,6 +132,7 @@ get_platillo(Input, Restaurante) :-
         read(NewPlatillo),
         get_platillo(NewPlatillo, Restaurante))).
 
+%valida el sabor y pregunta las unidades. Pregunta si el usuario quiere realizar otro pedido. 
 get_sabor(Input, Platillo, Restaurante) :-
     (menu(_, _, Sabores), pertenece(Sabor, Sabores), sub_string(Input, _, _, _, Sabor) ->
         write("¿Cuantas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
@@ -159,15 +164,18 @@ show_platillos(Restaurante) :-
     menu(Platillo, Restaurante, _),
     write(Platillo), nl.
 
+%Mostrar sabores de un platillo de un restaurante
 show_sabores(Platillo, Restaurante) :-
     menu(Platillo, Restaurante, Sabores),
     write(Sabores), nl.
 
+%Mostrar disposiciones y capacidad de un restaurante
 get_disposiciones(Restaurante) :-
     restaurante([Restaurante, _, _, Capacidad, Disposicion]), 
     write("Capacidad del restaurante: "), write(Capacidad), nl,
     write(Disposicion), nl.
 
+%Mostrar direccion de un restaurante
 get_direccion(Restaurante) :-
     restaurante([Restaurante, _, Direccion, _, _]), 
     write(Direccion), nl.
