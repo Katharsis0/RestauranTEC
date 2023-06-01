@@ -4,6 +4,14 @@
 miembro(Palabra, Cadena) :-
     sub_atom(Cadena, _, _, _, Palabra).
 
+analizar_input(Input) :-
+    miembro("recomendacion", Input),
+    recomendar.
+
+/*analizar_input(Input) :-
+    miembro("exit", Input), 
+    write("Un gusto atenderte, EXIT."), halt.*/
+
 %Mostrar todos los tipos de comida
 analizar_input(Input) :-
     miembro("tipos de comida", Input),
