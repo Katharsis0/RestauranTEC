@@ -76,7 +76,7 @@ analizar_input(Input) :-
 
 %Desea una recomendacion
 recomendar :-
-    write("Claro! ¿Qué tipo de comida desea comer? Ofrecemos las siguientes opciones: "), nl,
+    write("Claro! ¿Que tipo de comida desea comer? Ofrecemos las siguientes opciones: "), nl,
     analizar_input("tipos de comida"), %mostrar al usuario todos los tipos de comida
     get_tipo.
 
@@ -87,38 +87,41 @@ recomendar :-
 get_tipo :-
     read(Input),
     (miembro(Tipo, Input), restaurante([_, Tipo, _, _, _]) ->
-        write("¿En qué zona desea comer? "), nl,
+        write("¿En que zona desea comer? "), nl,
         read(Provincia),
         get_provincia(Provincia, Tipo); 
-        (write('El tipo de comida que ingreso no es válido. Por favor, intente nuevamente.'), nl, get_tipo)).
+        (write('El tipo de comida que ingreso no es valido. Por favor, intente nuevamente.'), nl, get_tipo)).
 
 get_provincia(Input, Tipo) :-
     (restaurante([_, _, [Provincia|_], _, _]), sub_string(Input, _, _, _, Provincia) ->
-        write("Le recomendamos los siguientes restaurantes. ¿Cuál de ellos le gustaría? "), nl,
+        write("Le recomendamos los siguientes restaurantes: "), nl,
         show_restaurantes(Tipo, Provincia),
+        write(" ¿Cual de ellos le gustaria? "), nl,
         read(Restaurante),
         get_restaurante(Restaurante); 
-        (write('La zona seleccionada no es válida. Por favor, intente nuevamente.'), nl, 
+        (write('La zona seleccionada no es valida. Por favor, intente nuevamente.'), nl, 
         read(NewProvincia),
         get_provincia(NewProvincia, Tipo))).
 
 get_restaurante(Input) :-
     (restaurante([Restaurante, _, _, _, _]), sub_string(Input, _, _, _, Restaurante) ->
-        write("A continuación le indicamos la dirección exacta de ese restaurante: "), nl,
+        write("A continuacion le indicamos la direccion exacta de ese restaurante: "), nl,
         get_direccion(Restaurante),
 
-        write("Ese restaurante ofrece los siguientes platillos. ¿Cuál de ellos desea ordenar? "), nl,
+        write("Ese restaurante ofrece los siguientes platillos:"), nl,
         show_platillos(Restaurante),
+        write("¿Cual de ellos desea ordenar? "), nl,
         read(Platillo),
         get_platillo(Platillo, Restaurante); 
-         (write('El restaurante seleccionado no es válido. Por favor, intente de nuevo.'), nl,
+         (write('El restaurante seleccionado no es valido. Por favor, intente de nuevo.'), nl,
          read(NewRestaurante),
          get_restaurante(NewRestaurante))).
 
 get_platillo(Input, Restaurante) :-
     (miembro(Platillo, Input), menu(Platillo, Restaurante, _) ->
-        write("Para ese platillo, "), write(Restaurante), write(", ofrece los siguientes sabores. ¿Cuál de ellos prefiere? "), nl,
+        write("Para ese platillo, "), write(Restaurante), write(", ofrece los siguientes sabores:"), nl,
         show_sabores(Platillo, Restaurante),
+        write("¿Cual de ellos prefiere? "), nl,
         read(Sabor),
         get_sabor(Sabor, Platillo, Restaurante); 
         (write('El platillo seleccionado no esta disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
@@ -126,12 +129,12 @@ get_platillo(Input, Restaurante) :-
         get_platillo(NewPlatillo, Restaurante))).
 
 get_sabor(Input, Platillo, Restaurante) :-
-    (menu(_, _, Sabores), member(Sabor, Sabores), sub_string(Input, _, _, _, Sabor) ->
-        write("¿Cuántas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
+    (menu(_, _, Sabores), pertenece(Sabor, Sabores), sub_string(Input, _, _, _, Sabor) ->
+        write("¿Cuantas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
         read(Unidades),
         write("Perfecto, "), write(Unidades), write(" de "), write(Platillo), write(" "), write(Sabor), write(" anotado! "),nl,
 
-        write("¿Desea algo más? A continuación le mostramos el menú de "), write(Restaurante), nl,
+        write("¿Desea algo mas? A continuacion le mostramos el menu de "), write(Restaurante), nl,
         mostrar_menu(Restaurante),
         read(Extra),
         (miembro("si", Extra) -> 
@@ -139,17 +142,12 @@ get_sabor(Input, Platillo, Restaurante) :-
             read(Platillo),
             get_platillo(Platillo, Restaurante));
             (miembro("no", Extra) -> 
-                (write("Pedido realizado!"), get_disposiciones(Restaurante), write(" Gracias por contar con RestauranTEC"), nl))
+                (write("Pedido realizado!"), nl, get_disposiciones(Restaurante), write("Gracias por contar con RestauranTEC"), nl))
         );
         (write('El sabor seleccionado no esta disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
         read(NewSabor),
         get_sabor(NewSabor, Platillo, Restaurante))).
 
-verificar_sabores(Input, Sabores) :-
-    menu(_, _, Sabores),
-    member(Sabor, Sabores),
-    sub_string(Input, _, _, _, Sabor),
-    !.
 
 %Mostrar restaurantes en una provincia y segun un tipo de comida
 show_restaurantes(Tipo, Provincia) :-
