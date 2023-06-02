@@ -1,4 +1,5 @@
-:- include('RestauranTEC-DB.pl').
+:-include('RestauranTEC-DB.pl').
+:-consult('RestauranTEC-BNF.pl').
 
 %Verificar si una palabra pertenece a una cadena
 miembro(Palabra, Cadena) :-
@@ -11,6 +12,10 @@ analizar_input(Input) :-
 /*Analizar_input(Input) :-
     miembro("exit", Input), 
     write("Un gusto atenderte, EXIT."), halt.*/
+
+analizar_input(Input) :-
+    miembro("tengo algo en mente", Input),
+    write("Perfecto! Dime, en que te puedo ayudar?").
 
 %Mostrar todos los tipos de comida
 analizar_input(Input) :-
@@ -34,7 +39,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar direccion 
 analizar_input(Input) :-
-    (miembro("direccion", Input); miembro("donde", Input)),
+    (miembro("direccion", Input); miembro("donde", Input); miembro("ubicacion", Input)),
     restaurante([Restaurante, _, Direccion, _, _]), 
     sub_string(Input, _, _, _, Restaurante),
     write(Direccion), nl.
@@ -62,7 +67,7 @@ analizar_input(Input) :-
     sub_string(Input, _, _, _, Restaurante),
     show_menu(Restaurante).
 
-%Analizar segun la comida especifica ->mostrar restaurantes que ofrecen esa comida
+%Analizar segun la comida especifica/ platillos ->mostrar restaurantes que ofrecen esa comida
 analizar_input(Input) :-
     menu(Plato, _, _), 
     miembro(Plato, Input),
@@ -97,10 +102,13 @@ recomendar :-
 recomendar :-
     write("Lo sentimos tu respuesta no es valida").
 
-
+validar(Input) :-
+    string2atomlist(Input, InputList),
+    validacion(InputList).
 %Valida el tipo de comida y pregunta la zona
 get_tipo :-
     read(Input),
+    validar(Input),
     (miembro(Tipo, Input), restaurante([_, Tipo, _, _, _]) ->
         write("¿En que zona desea comer? "), nl,
         read(Provincia),
@@ -114,9 +122,11 @@ get_provincia(Input, Tipo) :-
         show_restaurantes(Tipo, Provincia),
         write(" ¿Cual de ellos le gustaria? "), nl,
         read(Restaurante),
+        validar(Restaurante),
         get_restaurante(Restaurante); 
         (write('La zona seleccionada no es valida. Por favor, intente nuevamente.'), nl, 
         read(NewProvincia),
+        validar(NewProvincia),
         get_provincia(NewProvincia, Tipo))).
 
 %valida el restaurante y pregunta el platillo
@@ -129,9 +139,11 @@ get_restaurante(Input) :-
         show_platillos(Restaurante),
         write("¿Cual de ellos desea ordenar? "), nl,
         read(Platillo),
+        validar(Platillo),
         get_platillo(Platillo, Restaurante); 
          (write('El restaurante seleccionado no es valido. Por favor, intente de nuevo.'), nl,
          read(NewRestaurante),
+         validar(NewRestaurante),
          get_restaurante(NewRestaurante))).
 
 %valida el platillo y pregunta el sabor
@@ -141,9 +153,11 @@ get_platillo(Input, Restaurante) :-
         show_sabores(Platillo, Restaurante),
         write("¿Cual de ellos prefiere? "), nl,
         read(Sabor),
+        validar(Sabor),
         get_sabor(Sabor, Platillo, Restaurante); 
         (write('El platillo seleccionado no esta disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
         read(NewPlatillo),
+        validar(NewPlatillo),
         get_platillo(NewPlatillo, Restaurante))).
 
 %valida el sabor y pregunta las unidades. Pregunta si el usuario quiere realizar otro pedido. 
@@ -151,20 +165,24 @@ get_sabor(Input, Platillo, Restaurante) :-
     (menu(_, _, Sabores), pertenece(Sabor, Sabores), sub_string(Input, _, _, _, Sabor) ->
         write("¿Cuantas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
         read(Unidades),
+        validar(Unidades),
         write("Perfecto, "), write(Unidades), write(" de "), write(Platillo), write(" "), write(Sabor), write(" anotado! "),nl,
 
         write("¿Desea algo mas? A continuacion le mostramos el menu de "), write(Restaurante), nl,
         mostrar_menu(Restaurante),
         read(Extra),
+        validar(Extra),
         (miembro("si", Extra) -> 
             (write("Que platillo le gustar agregar?"), nl,
             read(Platillo),
+            validar(Platillo),
             get_platillo(Platillo, Restaurante));
             (miembro("no", Extra) -> 
                 (write("Pedido realizado!"), nl, get_disposiciones(Restaurante), write("Gracias por contar con RestauranTEC"), nl))
         );
         (write('El sabor seleccionado no esta disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
         read(NewSabor),
+        validar(NewSabor),
         get_sabor(NewSabor, Platillo, Restaurante))).
 
 
