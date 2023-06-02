@@ -3,10 +3,8 @@
 %%                   ______________________________________________________________________________
 %__________________/ Oración Válida
 
-validacion(O):-oracion(O,[]),!.%falta parsear input
+validacion(O):-oracion(O,[]).%falta parsear input
 
-validacion(O):-nl,writeln("Error: Gramática incorrecta. Consulte el manual si tiene duda."),nl,
-writeln("Ingrese de nuevo su oración.").
 
 
 % O = sintag. nominal + sintag. verbal
