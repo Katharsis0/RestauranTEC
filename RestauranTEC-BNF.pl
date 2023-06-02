@@ -5,7 +5,8 @@
 
 validacion(O):-oracion(O,[]),!.%falta parsear input
 
-validacion(O):-nl,writeln("Error: Gramática incorrecta. Consulte el manual si tiene duda."),nl,writeln("Ingrese de nuevo su oración."),nl,validacion(O).
+validacion(O):-nl,writeln("Error: Gramática incorrecta. Consulte el manual si tiene duda."),nl,
+writeln("Ingrese de nuevo su oración.").
 
 
 % O = sintag. nominal + sintag. verbal
@@ -45,6 +46,7 @@ nucleo([pizza|O],O).
 nucleo([pizzas|O],O).
 nucleo([taco|O],O).
 nucleo([tacos|O],O).
+nucleo([recomendacion|O],O).
 
 %pronombres
 nucleo([yo|O],O).
@@ -80,9 +82,6 @@ adjetivo([asiatica|O],O).
 adjetivo([mexicana|O],O).
 adjetivo([italianas|O],O).
 adjetivo([bocas|O],O).
-adjetivo([marisqueria|O],O).
-adjetivo([costarricense|O],O).
-adjetivo([vegana|O],O).
 
 
 
@@ -116,10 +115,17 @@ sintagmaVerbal(A,B):-verbo(A,X), preposicion(X,B).
 
 %verbos
 verbo([queremos|O],O).
+verbo(['Queremos'|O],O).
 verbo([quiero|O],O).
+verbo(['Quiero'|O],O).
 verbo([quiere|O],O).
+verbo(['Quiere'|O],O).
 verbo([quisieramos|O],O).
+verbo(['Quisieramos'|O],O).
 verbo([deseamos|O],O).
+verbo(['Deseamos'|O],O).
+verbo(['Deseo'|O],O).
+verbo([deseo|O],O).
 verbo([deseariamos|O],O).
 verbo([beber|O],O).
 verbo([tomar|O],O).
@@ -134,6 +140,7 @@ verbo([vamos|O],O).
 verbo([somos|O],O).
 verbo([seriamos|O],O).
 verbo([soy|O],O).
+
 
 %Caso concatenacion de 2 verbos. p.e: queremos comer
 verbo([X|O], O) :-
@@ -167,5 +174,7 @@ preposicion([X|Xs], O) :-
 
 
 
-
-
+input2list(L):-
+read_line_to_codes(user_input,Cs),
+atom_codes(A,Cs),
+atomic_list_concat(L, "", A).
