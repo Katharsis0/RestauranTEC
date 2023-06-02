@@ -15,7 +15,7 @@ header():-
 /*inicia la conversacion con el chat de recomendaciones. recibe un string del usuario
 y este se envia al archivo RestauranTEC-ID.pl para que la entrada sea procesada, hay dos caminos que 
 el usuario puede elegir, por recomendaciones directas o preguntas aleatorias para generar la recomendacion
-mas adecuada.
+mas adecuada
 */
 
 usuario_input :-
