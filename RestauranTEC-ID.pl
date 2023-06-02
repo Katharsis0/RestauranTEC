@@ -8,7 +8,7 @@ analizar_input(Input) :-
     miembro("recomendacion", Input),
     recomendar.
 
-/*analizar_input(Input) :-
+/*Analizar_input(Input) :-
     miembro("exit", Input), 
     write("Un gusto atenderte, EXIT."), halt.*/
 
@@ -212,7 +212,6 @@ get_direccion(Restaurante) :-
     write(Direccion), nl.
 
 string2atomlist(X,L):-atom_codes(X,A),atomic_list_concat(L, " ", X).
-
 
 
 
