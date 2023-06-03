@@ -229,4 +229,4 @@ get_direccion(Restaurante) :-
     restaurante([Restaurante, _, Direccion, _, _]), 
     write(Direccion), nl.
 
-string2atomlist(X,L):-atom_codes(X,A),atomic_list_concat(L, " ", X).
+string2atomlist(X,L):-atomic_list_concat(L, " ", X).

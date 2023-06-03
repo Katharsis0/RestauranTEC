@@ -276,15 +276,14 @@ preposicion([en|O],O).
 preposicion([X|O], O) :- preposicion(X, []).
 preposicion(X, []).
 
+%solucion al warning
+%preposicion([_|O], O) :- preposicion(_, []).
+
+
 preposicion([X|Xs], O) :-
   preposicion(X, Acc1),
   preposicion(Xs, Acc2),
   append(Acc1, Acc2, O).
-
-
-
-
-
 
 
 input2list(L):-
