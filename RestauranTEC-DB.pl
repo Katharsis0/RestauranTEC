@@ -27,7 +27,7 @@ restaurante(['El Chante Vegano', vegana, ['Alajuela', '25 mtrs Oeste de Oficina 
 
 restaurante(['Rosti', rapida, ['Cartago', '150m Este De Las Ruinas, Contiguo Al Palí, Cartago 30101.'], 20, ['Disposiciones del Rest: Disponemos de un reglamento para algunas de las promociones que ofrecemos.']]).
 
-restaurante(['Bocadito del cielo', costarricense, ['Cartago', '3kms. NE. Centro Cervantes, 10, Cervantes, Alvarado, Cartago 30602.'], 60, ['Disposiciones del Rest: Restaurante familiar, no se aceptan mascotas.']]).
+restaurante(['Bocadito del Cielo', costarricense, ['Cartago', '3kms. NE. Centro Cervantes, 10, Cervantes, Alvarado, Cartago 30602.'], 60, ['Disposiciones del Rest: Restaurante familiar, no se aceptan mascotas.']]).
 
 restaurante(['La Posada', costarricense, ['Cartago', 'Ruta Nacional Primaria 10, Provincia de Cartago, Cervantes, Cartago 30602.'], 50, ['Disposiciones del Rest: Brindamos un menú virtual para que pueda ver nuestras comidas sin necesidad de haber llegado al restaurante.']]).
 
@@ -110,10 +110,10 @@ menu(almuerzo, 'Rosti', ['arroz con pollo', 'sopa azteca','rosti Casado']).
 menu(desayuno, 'Rosti', [empanada, 'chalupa huevos rancheros', 'pinto bowl']).
 menu(fresco, 'Rosti', ['natuales en agua', gaseosas]).
 
-menu(desayuno, 'Bocadito del cielo', ['pinto costarricense', 'tostadas con carne de soja']).
-menu(almuerzo, 'Bocadito del cielo', ['filet de res en salsa de hongos kallampa', 'trucha en salsa de limon', 'albondigas de pollo en salsa blanca', 'pollo al horno']).
-menu(postre, 'Bocadito del cielo', ['yogurt con chia', 'manzanas asadas', 'piñas asadas', 'pie de limón de la casa']).
-menu(fresco, 'Bocadito del cielo', [tamarindo, soya, cebada, cereza]).
+menu(desayuno, 'Bocadito del Cielo', ['pinto costarricense', 'tostadas con carne de soja']).
+menu(almuerzo, 'Bocadito del Cielo', ['filet de res en salsa de hongos kallampa', 'trucha en salsa de limon', 'albondigas de pollo en salsa blanca', 'pollo al horno']).
+menu(postre, 'Bocadito del Cielo', ['yogurt con chia', 'manzanas asadas', 'piñas asadas', 'pie de limón de la casa']).
+menu(fresco, 'Bocadito del Cielo', [tamarindo, soya, cebada, cereza]).
 
 menu(desayuno, 'La Posada', ['gallo pinto con huevo', 'huevos rancheros','omelette jamon y queso','desayuno posada']).
 menu(almuerzo, 'La Posada', ['casado completo', 'pechuga de pollo a la parrilla', 'fajitas de pollo a la plancha','lomito encebollado','costilla de cerdo a la parrilla']).

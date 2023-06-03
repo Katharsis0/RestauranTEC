@@ -103,7 +103,6 @@ nucleo(['Julio'|O],O).
 nucleo(['Marco'|O],O).
 nucleo(['El Chante Vegano'|O],O).
 nucleo(['El Pub'|O],O).
-
 nucleo(['Bella Italia'|O], O).
 nucleo(['Monchis'|O], O).
 nucleo(['La Casita Frita'|O], O).
@@ -115,7 +114,7 @@ nucleo(['El Puerto'|O], O).
 nucleo(['Caballo Blanco'|O], O).
 nucleo(['El Chante Vegano'|O], O).
 nucleo(['Rosti'|O], O).
-nucleo(['Bocadito del cielo'|O], O).
+nucleo(['Bocadito del Cielo'|O], O).
 nucleo(['La Posada'|O], O).
 nucleo(['Mi Tierra'|O], O).
 nucleo(['Las Noches'|O], O).

@@ -28,7 +28,7 @@ analizar_input(Input) :-
     miembro("todos", Input),
     miembro("restaurantes", Input),
     listaRestaurantes(Restaurantes),
-    write(Restaurantes), nl.
+    mostrar_lista(Restaurantes),nl.
 
 %Analizar segun restaurante -> mostrar capacidad
 analizar_input(Input) :-
