@@ -238,9 +238,11 @@ verbo([ver|O],O).
 verbo([saber|O],O).
 verbo([encuentra|O],O).
 verbo([se|O],O).
+verbo([son|O],O).
 verbo([queda|O],O).
 verbo([ubicado|O],O).
 verbo([tengo, algo|O],O).
+
 
 
 
@@ -273,11 +275,11 @@ preposicion([cerca|O],O).
 preposicion([en|O],O).
 
 %Caso concatenacion de 2 preposiciones. p.e: cerca de
-preposicion([X|O], O) :- preposicion(X, []).
-preposicion(X, []).
+%preposicion([X|O], O) :- preposicion(X, []).
+%preposicion(X, []).
 
 %solucion al warning
-%preposicion([_|O], O) :- preposicion(_, []).
+preposicion([_|O], O) :- preposicion(_, []).
 
 
 preposicion([X|Xs], O) :-

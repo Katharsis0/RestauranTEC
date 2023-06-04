@@ -4,8 +4,7 @@
 
 inicio():-
     header(),
-    usuario_input,
-    usuario_input_aux(). 
+    usuario_input. 
     
 
 header():-
@@ -14,9 +13,9 @@ header():-
     nl.
 
 /*inicia la conversacion con el chat de recomendaciones. recibe un string del usuario
-y este se envia al archivo RestauranTEC-ID.pl para que la entrada sea procesada, hay dos caminos que 
-el usuario puede elegir, por recomendaciones directas o preguntas aleatorias para generar la recomendacion
-mas adecuada.
+y este se revisa con validacion() en el BNF, si esta comple con la sitaxis se analiza la entrada con analizar_input al
+archivo de RestauranTEC-ID para obtener una respuesta, si no cumple se envia un aviso al usuario para que consulte 
+con el manual, en caso de que el usuario escriba la palabra 'exit' en la consola este cerrara el programa.
 */
 
 usuario_input :-
@@ -24,7 +23,7 @@ usuario_input :-
     read_line_to_codes(user_input, InputCodes),
     atom_codes(Cadena, InputCodes),string2atomlist(Cadena,O),
     (O = [exit] ->
-        write('¡Muchas gracias por utilizar nuestro programa de rescomedaciones!'), nl, % Mensaje de salida opcional
+        write('¡Muchas gracias por utilizar nuestro programa de rescomedaciones!'), nl, % Mensaje de salida 
         halt % Terminar el programa
     ;
         (validacion(O) ->
