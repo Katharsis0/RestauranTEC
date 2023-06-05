@@ -26,6 +26,10 @@ oracion(A,B):-pregunta(A,X), sintagmaNominal(X,Y), sintagmaVerbal(Y,B).
 %pregunta+verbo+sustantivo
 oracion(A,B):-pregunta(A,X), sintagmaVerbal(X,Y), sintagmaNominal(Y,B).
 
+
+%pregunta + nominal + preposicion + nominal
+oracion(A,B):-pregunta(A,X), sintagmaNominal(Y,Z), preposicion(Z,W),sintagmaNominal(W,B).
+
 %                   ______________________________________________________________________________
 %__________________/ Sintagma Nominal
 
@@ -39,6 +43,9 @@ sintagmaNominal(A,B):-determinante(A,X),sustantivo(X,B).
 sustantivo(A,B):- nucleo(A,B).
 
 sustantivo(A,B):- nucleo(A,X), adjetivo(X,B).
+
+sustantivo(A,B):- nucleo(A,X), preposicion(X,Y), nucleo(Y,B).
+
 
 %nucleos: comida, empanada(s), pollo(s), pizza(s), taco(s), etc.
 nucleo([comida|O],O).
@@ -73,12 +80,7 @@ nucleo([direccion|O],O).
 nucleo([direccion, de|O],O).
 nucleo([platillos|O],O).
 nucleo([platos|O],O).
-
-
-
-
-
-
+nucleo([menu|O],O).
 nucleo([sabores, de|O],O).
 
 
@@ -102,27 +104,45 @@ nucleo(['Valeria'|O],O).
 nucleo(['Julio'|O],O).
 nucleo(['Marco'|O],O).
 nucleo(['El Chante Vegano'|O],O).
-nucleo(['El Pub'|O],O).
+nucleo(['El', 'Chante', 'Vegano'|O],O).
 nucleo(['Bella Italia'|O], O).
 nucleo(['Monchis'|O], O).
+nucleo(['Bella', 'Italia'|O], O).
+
 nucleo(['La Casita Frita'|O], O).
+nucleo(['La', 'Casita', 'Frita'|O], O).
 nucleo(['Wongs'|O], O).
 nucleo(['El Pub'|O], O).
+nucleo(['El', 'Pub'|O], O).
+
 nucleo(['La Fabbrica'|O], O).
+nucleo(['La', 'Fabbrica'|O], O).
+
 nucleo(['Catrinas'|O], O).
 nucleo(['El Puerto'|O], O).
+nucleo(['El', 'Puerto'|O], O).
 nucleo(['Caballo Blanco'|O], O).
-nucleo(['El Chante Vegano'|O], O).
+nucleo(['Caballo', 'Blanco'|O], O).
 nucleo(['Rosti'|O], O).
 nucleo(['Bocadito del Cielo'|O], O).
+nucleo(['Bocadito', 'del', 'Cielo'|O], O).
+
 nucleo(['La Posada'|O], O).
+nucleo(['La', 'Posada'|O], O).
 nucleo(['Mi Tierra'|O], O).
+nucleo(['Mi', 'Tierra'|O], O).
 nucleo(['Las Noches'|O], O).
+nucleo(['Las', 'Noches'|O], O).
 nucleo(['Sapore Trattoria'|O], O).
+nucleo(['Sapore', 'Trattoria'|O], O).
 nucleo(['Okami Sushi'|O], O).
+nucleo(['Okami', 'Sushi'|O], O).
 nucleo(['Tico Burguesas'|O], O).
+nucleo(['Tico', 'Burguesas'|O], O).
 nucleo(['La Parrillita de Pepe'|O], O).
+nucleo(['La Parrillita', 'de', 'Pepe'|O], O).
 nucleo(['Nonnos Pizzeria'|O], O).
+nucleo(['Nonnos', 'Pizzeria'|O], O).
 
 
 %provincias
@@ -135,13 +155,13 @@ nucleo(['Limon'|O],O).
 nucleo(['Guanacaste'|O],O).
 
 %concatenacion de nucleos
-nucleo([X|O], O) :-
-    nucleo(X, []).
+% nucleo([X|O], O) :-
+%     nucleo(X, []).
   
-  nucleo([X|Xs], O) :-
-    nucleo(X, Acc1),
-    nucleo(Xs, Acc2),
-    append(Acc1, Acc2, O).
+%   nucleo([X|Xs], O) :-
+%     nucleo(X, Acc1),
+%     nucleo(Xs, Acc2),
+%     append(Acc1, Acc2, O).
 
 
 %                   ______________________________________________________________________________
@@ -160,16 +180,23 @@ adjetivo([costarricense|O],O).
 %                   ______________________________________________________________________________
 %__________________/ Preguntas
 pregunta([cual|O],O).
+pregunta([cual, es|O],O).
 pregunta(['Cual'|O],O).
+pregunta(['Cual',es|O],O).
 pregunta([que|O],O).
 pregunta(['Que'|O],O).
 pregunta([cual|O],O).
 pregunta(['Cuales'|O],O).
 pregunta([donde|O],O).
 pregunta(['Donde'|O],O).
+pregunta([donde,queda|O],O).
+pregunta(['Donde',queda|O],O).
 
 
+%cual es el menu de Wongs
 
+%pregunta + verbo + sustantivo + preposicion + sustantivo
+%pregunta + verbal + nominal + preposicion + nominal
 
 
 
@@ -275,11 +302,8 @@ preposicion([cerca|O],O).
 preposicion([en|O],O).
 
 %Caso concatenacion de 2 preposiciones. p.e: cerca de
-%preposicion([X|O], O) :- preposicion(X, []).
-%preposicion(X, []).
-
-%solucion al warning
-preposicion([_|O], O) :- preposicion(_, []).
+preposicion([X|O], O) :- preposicion(X, []).
+preposicion(X, []).
 
 
 preposicion([X|Xs], O) :-
@@ -288,7 +312,3 @@ preposicion([X|Xs], O) :-
   append(Acc1, Acc2, O).
 
 
-input2list(L):-
-read_line_to_codes(user_input,Cs),
-atom_codes(A,Cs),
-atomic_list_concat(L, '', A).
