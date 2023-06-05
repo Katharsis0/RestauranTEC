@@ -93,6 +93,8 @@ nucleo([platos|O],O).
 nucleo([menu|O],O).
 nucleo([sabores, de|O],O).
 nucleo([casado|O],O).
+nucleo([bocas|O], O).
+nucleo([mariscos|O],O).
 
 
 %preguntas varias
@@ -156,6 +158,7 @@ nucleo(['Nonnos Pizzeria'|O], O).
 nucleo(['Nonnos', 'Pizzeria'|O], O).
 
 
+
 %provincias
 nucleo(['Cartago'|O],O).
 
@@ -185,9 +188,7 @@ adjetivo([rapida|O],O).
 adjetivo([asiatica|O],O).
 adjetivo([mexicana|O],O).
 adjetivo([italiana|O],O).
-adjetivo([bocas|O],O).
 adjetivo([vegana|O],O).
-adjetivo([mariscos|O],O).
 adjetivo([costarricense|O],O).
 %                   ______________________________________________________________________________
 %__________________/ Preguntas
