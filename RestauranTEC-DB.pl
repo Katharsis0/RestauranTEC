@@ -33,17 +33,17 @@ restaurante(['La Posada', costarricense, ['Cartago', 'Ruta Nacional Primaria 10,
 
 restaurante(['Mi Tierra', costarricense, ['Cartago', '2 Km Este del puente Bailey, carretera al Volcán Irazú Cartago 30701.'], 20, ['Disposiciones del Rest: Lo mejor de la comida Costarricense!.']]).
 
-restaurante(['Las Noches', mexicana, ['San José', 'Calle 40 entre Paseo Colon 50 norte del BCR, San José 10108'], 20, ['Disposiciones del Rest: Servimos platillos mexicanos con un toque auténtico.']]).
+restaurante(['Las Noches', mexicana, ['San Jose', 'Calle 40 entre Paseo Colon 50 norte del BCR, San José 10108'], 20, ['Disposiciones del Rest: Servimos platillos mexicanos con un toque auténtico.']]).
 
-restaurante(['Sapore Trattoria', italiana, ['San José', 'Avenida Segunda, 1 Cuadra Al Oeste de la Plaza la Democracia Curridabat, de la POPS 75 al este, Frente al CFIA, San José 10108'], 30, ['Disposiciones del Rest: Ofrecemos también buenas opciones veganas dentro de nuestro menú.']]).
+restaurante(['Sapore Trattoria', italiana, ['San Jose', 'Avenida Segunda, 1 Cuadra Al Oeste de la Plaza la Democracia Curridabat, de la POPS 75 al este, Frente al CFIA, San José 10108'], 30, ['Disposiciones del Rest: Ofrecemos también buenas opciones veganas dentro de nuestro menú.']]).
 
-restaurante(['Okami Sushi', asiatica, ['San José', '200 metros sur de Casa Matute, Barrio Lujan, San Jose 10110'], 40, ['Disposiciones del Rest: Abrimos en la mañana y en la noche, con dos horas de cierre entre estos horarios, puede consultarlos en la página del restaurante.']]).
+restaurante(['Okami Sushi', asiatica, ['San Jose', '200 metros sur de Casa Matute, Barrio Lujan, San Jose 10110'], 40, ['Disposiciones del Rest: Abrimos en la mañana y en la noche, con dos horas de cierre entre estos horarios, puede consultarlos en la página del restaurante.']]).
 
-restaurante(['Tico Burguesas', rapida, ['San José', '1 Calle 9, El Carmen, San José, 10101'], 30, ['Disposiciones del Rest: Contamos con un horario de 24 horas.']]).
+restaurante(['Tico Burguesas', rapida, ['San Jose', '1 Calle 9, El Carmen, San José, 10101'], 30, ['Disposiciones del Rest: Contamos con un horario de 24 horas.']]).
 
 restaurante(['La Parrillita de Pepe', rapida, ['Heredia', 'Heredia centro, Heredia 40101'], 20, ['Disposiciones del Rest: Opciones de comida colombiana en nuestro menú y el restarurante se mantiene abierto hasta tarde']]).
 
-restaurante(['Nonnos Pizzeria', italiana, ['Del Banco Nacional 225 Metros Al Este, Heredia 40101'], 30, ['Disposiciones del Rest: Opciones de comida vegana y vegetariana, gran experiencia en hacer pizzas']]).
+restaurante(['Nonnos Pizzeria', italiana, ['Heredia', 'Del Banco Nacional 225 Metros Al Este, Heredia 40101'], 30, ['Disposiciones del Rest: Opciones de comida vegana y vegetariana, gran experiencia en hacer pizzas']]).
 %                   ______________________________________________________________________________
 %__________________/ Menú de cada restaurante
 
