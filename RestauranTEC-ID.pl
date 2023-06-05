@@ -60,7 +60,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar menu
 analizar_input(Input) :-
-(miembro("menu", Input);miembro("platillos", Input)),
+    miembro("menu", Input),
     restaurante([Restaurante, _, _, _, _]), %verificar que el restaurante esta en la base de datos
     sub_string(Input, _, _, _, Restaurante),
     show_menu(Restaurante), !.
@@ -183,7 +183,6 @@ get_sabor(Input, Platillo, Restaurante) :-
         show_menu(Restaurante),
         read_line_to_codes(user_input, ICE),
         atom_codes(Extra, ICE),
-        %validar(Extra),
 
         (miembro('si', Extra) -> 
         (write("Que platillo le gustaría agregar?"), nl,
@@ -193,12 +192,12 @@ get_sabor(Input, Platillo, Restaurante) :-
         get_platillo(NewPlatillo, Restaurante));
         (miembro('no', Extra) -> 
             (write("Pedido realizado!"), nl, get_disposiciones(Restaurante), write("Gracias por contar con RestauranTEC"), nl))
-        );
+        ), !;
         (write('El sabor seleccionado no está disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
         read_line_to_codes(user_input, ICS),
         atom_codes(NewSabor, ICS),
         validar(NewSabor),
-        get_sabor(NewSabor, Platillo, Restaurante))).
+        get_sabor(NewSabor, Platillo, Restaurante))), !.
 
 
 
