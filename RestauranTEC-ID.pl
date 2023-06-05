@@ -5,14 +5,12 @@
 miembro(Palabra, Cadena) :-
     sub_atom(Cadena, _, _, _, Palabra).
 
+%En caso de que el usuario pida una recomendacion -> se dirige a la regla recomendar.
 analizar_input(Input) :-
     miembro("recomendacion", Input),
     recomendar, !.
 
-/*Analizar_input(Input) :-
-    miembro("exit", Input), 
-    write("Un gusto atenderte, EXIT."), halt.*/
-
+%Si el usuario dice que tiene algo en mente, respuesta simple
 analizar_input(Input) :-
     miembro("algo en mente", Input),
     write("Perfecto! Dime, en que te puedo ayudar?"), !.
@@ -99,9 +97,11 @@ recomendar :-
     analizar_input("tipos de comida"), %mostrar al usuario todos los tipos de comida
     get_tipo.
 
+%En caso de que no se cumpla ninguna de las opciones anteriores
 recomendar :-
     write("Lo sentimos tu respuesta no es valida").
 
+%Llamar a la regla de validacion del BNF
 validar(Input) :-
     string2atomlist(Input, InputList),
     validacion(InputList).
@@ -129,12 +129,13 @@ get_provincia(Input, Tipo) :-
         read_line_to_codes(user_input, ICR),
         atom_codes(Restaurante, ICR),
         validar(Restaurante),
-        get_restaurante(Restaurante); 
-        (write('La zona seleccionada no es valida. Por favor, intente nuevamente.'), nl, 
-        read_line_to_codes(user_input, ICP),
-        atom_codes(NewProvincia, ICP),
-        validar(NewProvincia),
-        get_provincia(NewProvincia, Tipo))).
+        (get_restaurante(Restaurante) ; write('El restaurante seleccionado no es valido. Por favor, intente de nuevo.'), nl, get_provincia(Input, Tipo))
+    ;
+    (write('La zona seleccionada no es valida. Por favor, intente nuevamente.'), nl, 
+    read_line_to_codes(user_input, ICP),
+    atom_codes(NewProvincia, ICP),
+    validar(NewProvincia),
+    get_provincia(NewProvincia, Tipo))).
 
 %valida el restaurante y pregunta el platillo
 get_restaurante(Input) :-
@@ -176,27 +177,29 @@ get_sabor(Input, Platillo, Restaurante) :-
         write("¿Cuantas unidades de "), write(Platillo), write(" con sabor "), write(Sabor), write("?"), nl,
         read_line_to_codes(user_input, ICU),
         atom_codes(Unidades, ICU),
-        write("Perfecto, "), write(Unidades), write(" de "), write(Platillo), write(" "), write(Sabor), write(" anotado! "),nl,
+        write("Perfecto, "), write(Unidades), write(" de "), write(Platillo), write(" "), write(Sabor), write(" anotado! "), nl,
 
         write("¿Desea algo mas? A continuacion le mostramos el menu de "), write(Restaurante), nl,
-        mostrar_menu(Restaurante),
+        show_menu(Restaurante),
         read_line_to_codes(user_input, ICE),
         atom_codes(Extra, ICE),
-        validar(Extra),
-        (miembro("si", Extra) -> 
-            (write("Que platillo le gustar agregar?"), nl,
-            read_line_to_codes(user_input, ICPl),
-            atom_codes(Platillo, ICPl),
-            validar(Platillo),
-            get_platillo(Platillo, Restaurante));
-            (miembro("no", Extra) -> 
-                (write("Pedido realizado!"), nl, get_disposiciones(Restaurante), write("Gracias por contar con RestauranTEC"), nl))
+        %validar(Extra),
+
+        (miembro('si', Extra) -> 
+        (write("Que platillo le gustaría agregar?"), nl,
+        read_line_to_codes(user_input, ICPl),
+        atom_codes(NewPlatillo, ICPl),
+        validar(NewPlatillo),
+        get_platillo(NewPlatillo, Restaurante));
+        (miembro('no', Extra) -> 
+            (write("Pedido realizado!"), nl, get_disposiciones(Restaurante), write("Gracias por contar con RestauranTEC"), nl))
         );
-        (write('El sabor seleccionado no esta disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
+        (write('El sabor seleccionado no está disponible en este restaurante. Por favor, intente nuevamente.'), nl, 
         read_line_to_codes(user_input, ICS),
         atom_codes(NewSabor, ICS),
         validar(NewSabor),
         get_sabor(NewSabor, Platillo, Restaurante))).
+
 
 
 %Mostrar restaurantes en una provincia y segun un tipo de comida
