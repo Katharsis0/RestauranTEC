@@ -57,14 +57,14 @@ menu(gaseosa, 'Bella Italia', [sprite, 'coca cola', fanta]).
 
 menu(hamburguesa, 'Monchis', ['tex mex', clasica, 'super monchis']). %Los sinonimos se pueden reconocer en la funcion de lectura
 menu(papas , 'Monchis', ['de la casa', arregladas, clasicas]).
-menu(burrito, 'Monchis', ['especia del estudiantes', clasico, 'super monchis']).
-menu(fresco, 'Monchis', ['refresco natural del dia']).
+menu(burrito, 'Monchis', ['especial de estudiante', clasico, 'super monchis']).
+menu(fresco, 'Monchis', ['natural']).
 menu(gaseosa, 'Monchis', ['coca cola']).
 
 menu(hamburguesa, 'La Casita Frita', [sencilla, doble, 'con tocineta']). %Nota: los atomos pueden ser frases pero deben ir entre comillas
-menu(papas, 'La Casita Frita', [regulares, 'con queso', 'con salsa/s', cargadas]).
+menu(papas, 'La Casita Frita', [regulares, 'con queso', 'con salsas', cargadas]).
 menu(pollo, 'La Casita Frita', [entero, popcorn, tenders]).
-menu(fresco, 'La Casita Frita', ['papaya','fresco de frutas', 'te frio']).
+menu(fresco, 'La Casita Frita', [papaya,'fresco de frutas', 'te frio']).
 
 menu(ramen, 'Wongs', ['en sopa miso', clasico, 'vegetariano']). %Los sinonimos se pueden reconocer en la funcion de lectura
 menu(sushi , 'Wongs', ['dinamita roll', cangrejo, 'vegetariano', 'atun fresco', 'salmon fresco', 'barco de sushi con 80 piezas surtidas']).
@@ -89,26 +89,26 @@ menu(postre, 'Catrina', [churros, 'helado de tamarindo y chile', 'pan de muerto'
 menu(fresco, 'Catrina', [tamarindo, 'aguas frescas']).
 menu(gaseosa, 'Catrina', [sprite, 'big cola', fanta]).
 
-menu(desayuno, 'El Puerto', ['churchil de frutas', 'gallo pinto', 'gallos de queso']).
-menu(almuerzo, 'El Puerto', ['casado con la proteina del dia', 'patacones con calamar', 'sopa de pescado', vigoron]).
+menu(desayuno, 'El Puerto', ['bowl de frutas', 'gallo pinto', 'gallos de queso']).
+menu(almuerzo, 'El Puerto', ['casado', 'patacones con calamar', 'sopa de pescado', vigoron]).
 menu(postre, 'El Puerto', [churchill, 'helado de sorbetera', 'copos']).
 menu(fresco, 'El Puerto', [tamarindo, pipas]).
-menu(ceviche, 'El Puerto', ['de mango', sencillo, 'supremo con langosta y calamar']).
+menu(ceviche, 'El Puerto', [mango, sencillo, 'supremo con langosta y calamar']).
 
 menu(desayuno, 'Caballo Blanco', ['huevos rancheros', 'gallo pinto', 'gallos de queso']).
 menu(almuerzo, 'Caballo Blanco', ['casado con la proteina del dia', 'olla de carne', 'sopa negra']).
-menu(postre, 'Caballo Blanco', ['pastel del dia', 'arroz con leche', 'helados de sorbetera']).
-menu(fresco, 'Caballo Blanco', [natuales]).
+menu(postre, 'Caballo Blanco', ['pastel', 'arroz con leche', 'helados de sorbetera']).
+menu(fresco, 'Caballo Blanco', [natural]).
 
-menu(tacos, 'El Chante Vegano', ['de birria con hongos', 'de carne de soja']).
+menu(tacos, 'El Chante Vegano', ['tipo birria con hongos', 'de carne de soja']).
 menu(almuerzo, 'El Chante Vegano', ['casado con proteina vegetal', 'ensaladas','tofu de la casa']).
 menu(desayuno, 'El Chante Vegano', ['bowl de yogurt de tofu', 'ensalada de frutas']).
-menu(fresco, 'El Chante Vegano', ['natuales en agua', 'especialidad cruelty free']).
+menu(fresco, 'El Chante Vegano', ['naturales en agua', 'especialidad cruelty free']).
 
 menu(pollo, 'Rosti', [fajitas, 'media pechuga deshuesada','cuarto de pollo']).
 menu(almuerzo, 'Rosti', ['arroz con pollo', 'sopa azteca','rosti Casado']).
 menu(desayuno, 'Rosti', [empanada, 'chalupa huevos rancheros', 'pinto bowl']).
-menu(fresco, 'Rosti', ['natuales en agua', gaseosas]).
+menu(fresco, 'Rosti', ['naturales en agua', gaseosas]).
 
 menu(desayuno, 'Bocadito del Cielo', ['pinto costarricense', 'tostadas con carne de soja']).
 menu(almuerzo, 'Bocadito del Cielo', ['filet de res en salsa de hongos kallampa', 'trucha en salsa de limon', 'albondigas de pollo en salsa blanca', 'pollo al horno']).
@@ -144,14 +144,14 @@ menu(postre, 'Okami Sushi', ['nom nom', rickby, jake, marceline, matsuri]).
 menu(hamburguesa, 'Tico Burguesas', ['sencilla con queso', 'sencilla con tocineta', doble, triple,'hamburguesa de lomo','hamburguesa de pollo']).
 menu(desayuno, 'Tico Burguesas', ['gallo pinto', tostadas,'huevo jamon y tocineta', empanadas]).
 menu(almuerzo, 'Tico Burguesas', [casado, 'arroz con pollo', 'carne en salsa']).
-menu(tacos, 'Tico Burguesas', [crema,  chan, gaseosas]).
+menu(tacos, 'Tico Burguesas', [pastor, pollo, cordero]).
 
 menu(hamburguesa, 'La Parrillita de Pepe', [sencilla, quesoburguesa, especial, doble]).
-menu(almuerzo, 'La Parrillita de Pepe', ['almuerzo tipico ', 'bandeja paisa', mondongo,'carnes a la parrilla']).
+menu(almuerzo, 'La Parrillita de Pepe', ['almuerzo tipico', 'bandeja paisa', mondongo,'carnes a la parrilla']).
 menu(fresco, 'La Parrillita de Pepe', [naturales, gaseosas, calientes, licores]).
 
 menu(pizza, 'Nonnos Pizzeria', ['chicken pesto', 'chicken alfredo','buffalo chikken','sloppy joe', greek]).
-menu(almuerzo, 'Nonnos Pizzeria', [speidini, cotoletta,'chicken parmesan','shrimp']).
+menu(almuerzo, 'Nonnos Pizzeria', [spidini, cotoletta,'chicken parmesan','shrimp']).
 menu(postre, 'Nonnos Pizzeria', [tiramisu, cannoli, cheesecake, affogato,'nutella mousse']).
 
 

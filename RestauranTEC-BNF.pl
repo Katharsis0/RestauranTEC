@@ -57,6 +57,9 @@ sustantivo(A,B):- nucleo(A,X), preposicion(X,Y), nucleo(Y,B).
 %nucleos: comida, empanada(s), pollo(s), pizza(s), taco(s), etc.
 nucleo([comida|O],O).
 nucleo([pollo|O],O).
+nucleo([empanadas|O],O).
+nucleo([empanada|O],O).
+nucleo([arroz,con,pollo|O],O).
 nucleo([pollos|O],O).
 nucleo([pizza|O],O).
 nucleo([pizzas|O],O).
@@ -89,6 +92,7 @@ nucleo([platillos|O],O).
 nucleo([platos|O],O).
 nucleo([menu|O],O).
 nucleo([sabores, de|O],O).
+nucleo([casado|O],O).
 
 
 %preguntas varias
@@ -155,7 +159,7 @@ nucleo(['Nonnos', 'Pizzeria'|O], O).
 %provincias
 nucleo(['Cartago'|O],O).
 
-nucleo(['San Jose'|O],O).
+nucleo(['San', 'Jose'|O],O).
 nucleo(['Heredia'|O],O).
 nucleo(['Alajuela'|O],O).
 nucleo(['Puntarenas'|O],O).
@@ -247,7 +251,8 @@ verbo(['Quiere'|O],O).
 verbo([quisiera|O],O).
 verbo(['Quisiera'|O],O).
 verbo([quisieramos|O],O).
-verbo(['Quisieramos'|O],O).
+verbo([quisieramos, saber|O],O).
+verbo(['Quisieramos',saber|O],O).
 verbo([deseamos|O],O).
 verbo(['Deseamos'|O],O).
 verbo(['Deseo'|O],O).
@@ -280,8 +285,19 @@ verbo([queda|O],O).
 verbo([ubicado|O],O).
 verbo([tengo, algo|O],O).
 verbo([tenemos, algo|O],O).
+verbo([ir|O],O).
 verbo(['Tenemos', algo|O],O).
 verbo(['Tengo', algo|O],O).
+verbo(['Me', gustaria|O],O).
+verbo([me, gustaria|O],O).
+verbo(['Nos', gustaria|O],O).
+verbo([nos, gustaria|O],O).
+verbo(['Me', encantaria|O],O).
+verbo([me, encantaria|O],O).
+verbo(['Nos', encantaria|O],O).
+verbo([nos, encantaria|O],O).
+
+
 
 
 
