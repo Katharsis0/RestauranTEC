@@ -62,7 +62,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar menu
 analizar_input(Input) :-
-    miembro("menu", Input),
+(miembro("menu", Input);miembro("platillos", Input)),
     restaurante([Restaurante, _, _, _, _]), %verificar que el restaurante esta en la base de datos
     sub_string(Input, _, _, _, Restaurante),
     show_menu(Restaurante), !.

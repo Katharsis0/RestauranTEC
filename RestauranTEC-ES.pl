@@ -8,7 +8,7 @@ inicio():-
     
 
 header():-
-    nl,write("Bienvenidos a RestauranTEC, su bot de confianza para la recomendacion de los mejores restaurantes del pais."),nl,nl,
+    nl,write("Bienvenidos a RestauranTEC, su bot de confianza para la recomendacion de los mejores restaurantes del pais. *Proximamente en Guanacaste y Limon* "),nl,nl,
     nl,write('¿Quieres una recomendacion o tienes algo en mente?'),
     nl.
 
