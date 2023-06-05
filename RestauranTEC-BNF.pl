@@ -288,6 +288,16 @@ verbo([tenemos, algo|O],O).
 verbo([ir|O],O).
 verbo(['Tenemos', algo|O],O).
 verbo(['Tengo', algo|O],O).
+verbo(['Me', gustaria|O],O).
+verbo([me, gustaria|O],O).
+verbo(['Nos', gustaria|O],O).
+verbo([nos, gustaria|O],O).
+verbo(['Me', encantaria|O],O).
+verbo([me, encantaria|O],O).
+verbo(['Nos', encantaria|O],O).
+verbo([nos, encantaria|O],O).
+
+
 
 
 
