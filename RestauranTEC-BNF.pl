@@ -14,6 +14,10 @@ oracion(A,B):-sintagmaNominal(A,X), sintagmaVerbal(X,B).
 % O = sintag. verbal + sintag. nominal 
 oracion(A,B):-sintagmaVerbal(A,X), sintagmaNominal(X,B).
 
+oracion(A,B):-sintagmaVerbal(A,X), preposicion(X,Y), sintagmaNominal(Y,B).
+
+
+
 % O = sintag. nominal + sintag. verbal + sintag. nominal 
 oracion(A,B):-sintagmaNominal(A,X), sintagmaVerbal(X,Y), sintagmaNominal(Y,B).
 
@@ -25,6 +29,9 @@ oracion(A,B):-pregunta(A,X), sintagmaNominal(X,Y), sintagmaVerbal(Y,B).
 
 %pregunta+verbo+sustantivo
 oracion(A,B):-pregunta(A,X), sintagmaVerbal(X,Y), sintagmaNominal(Y,B).
+
+%quiero comer en San Jose
+
 
 
 %pregunta + nominal + preposicion + nominal
@@ -147,6 +154,7 @@ nucleo(['Nonnos', 'Pizzeria'|O], O).
 
 %provincias
 nucleo(['Cartago'|O],O).
+
 nucleo(['San Jose'|O],O).
 nucleo(['Heredia'|O],O).
 nucleo(['Alajuela'|O],O).
@@ -236,6 +244,8 @@ verbo([quiero|O],O).
 verbo(['Quiero'|O],O).
 verbo([quiere|O],O).
 verbo(['Quiere'|O],O).
+verbo([quisiera|O],O).
+verbo(['Quisiera'|O],O).
 verbo([quisieramos|O],O).
 verbo(['Quisieramos'|O],O).
 verbo([deseamos|O],O).
@@ -269,6 +279,9 @@ verbo([son|O],O).
 verbo([queda|O],O).
 verbo([ubicado|O],O).
 verbo([tengo, algo|O],O).
+verbo([tenemos, algo|O],O).
+verbo(['Tenemos', algo|O],O).
+verbo(['Tengo', algo|O],O).
 
 
 
@@ -310,5 +323,6 @@ preposicion([X|Xs], O) :-
   preposicion(X, Acc1),
   preposicion(Xs, Acc2),
   append(Acc1, Acc2, O).
+
 
 
