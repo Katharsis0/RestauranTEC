@@ -210,9 +210,11 @@ mostrar_lista([X|Resto]) :-
     write(X), nl,
     mostrar_lista(Resto).
 
+%Mostrar provincias segun un tipo de comida
 show_provincias(Tipo) :-
     findall(Provincia, restaurante([_, Tipo, [Provincia|_], _, _]), Provincias),
-    mostrar_lista(Provincias).
+    list_to_set(Provincias, ProvinciasSinRepetir),
+    mostrar_lista(ProvinciasSinRepetir).
 
 %Mostrar platillos de un restaurante
 show_platillos(Restaurante) :-
