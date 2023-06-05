@@ -23,7 +23,7 @@ usuario_input :-
     read_line_to_codes(user_input, InputCodes),
     atom_codes(Cadena, InputCodes),string2atomlist(Cadena,O),
     (O = [exit] ->
-        write('¡Muchas gracias por utilizar nuestro programa de rescomedaciones!'), nl, % Mensaje de salida 
+        write('¡Muchas gracias por utilizar nuestro programa de recomedaciones!'), nl, % Mensaje de salida 
         halt % Terminar el programa
     ;
         (validacion(O) ->
