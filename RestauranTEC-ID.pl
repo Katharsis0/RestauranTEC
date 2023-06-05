@@ -47,7 +47,6 @@ analizar_input(Input) :-
 %Analizar segun plato y restaurante -> mostrar sabores
 analizar_input(Input) :-
     miembro("sabores", Input),
-    miembro("en", Input),
     menu(Plato, Restaurante, _),
     sub_string(Input, _, _, _, Plato),
     sub_string(Input, _, _, _, Restaurante),
