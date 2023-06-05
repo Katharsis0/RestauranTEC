@@ -1,4 +1,4 @@
-% Establecimiento de la base de datos que consultará al Sistema Experto.
+% Establecimiento de la base de datos que consultara al Sistema Experto.
 
 %                   ______________________________________________________________________________
 %__________________/ Restaurantes
@@ -9,15 +9,15 @@ restaurante(['Bella Italia',italiana,['San Jose','Centro Comercial Paco, Escazu 
 
 restaurante(['Monchis', rapida, ['Cartago', '100 mts sur de la entrada principal de los tribunales de justicia, Cartago 30102.'], 20, ['Disposiciones: Ambiente Pet-Friendly.']]).
 
-restaurante(['La Casita Frita', rapida, ['Limon', 'C. 13, Limon centro 30101'], 20, ['Disposiciones del Rest. : Solo se permite pedir para llevar.']]).
+restaurante(['La Casita Frita', rapida, ['Limon', 'Puerto Limon 70101 Costa Rica'], 20, ['Disposiciones del Rest. : Solo se permite pedir para llevar.']]).
 
 restaurante(['Wongs', asiatica,['San Jose','Av. Central, El Carmen 10101'], 20, ['Disposiciones del Rest. : Solo contamos con palillos, no ofrecemos cubiertos.']]).
 
-restaurante(['El Pub', bocas, ['Cartago','Carretera A Paraíso, Cartago 30109'], 20, ['Disposiciones del Rest. : Solo se permite el ingreso de mayores de edad.']]).
+restaurante(['El Pub', bocas, ['Cartago','Carretera A Paraiso, Cartago 30109'], 20, ['Disposiciones del Rest. : Solo se permite el ingreso de mayores de edad.']]).
 
-restaurante(['La Fabbrica', italiana, ['Heredia', 'Paseo de Las Flores, Heredia 40801'], 20, ['Disposiciones del Rest. : Se recomienda reservar con antelación.']]).
+restaurante(['La Fabbrica', italiana, ['Heredia', 'Paseo de Las Flores, Heredia 40801'], 20, ['Disposiciones del Rest. : Se recomienda reservar con antelacion.']]).
 
-restaurante(['Catrinas', mexicana, ['Heredia', 'Calle Carolina, Miraflores, San Joaquín 40601'], 20, ['Disposiciones del Rest: Jueves de Chilaquiles']]).
+restaurante(['Catrinas', mexicana, ['Heredia', 'Calle Carolina, Miraflores, San Joaquin 40601'], 20, ['Disposiciones del Rest: Jueves de Chilaquiles']]).
 
 restaurante(['El Puerto', mariscos, ['Puntarenas', 'Costado Oeste Del Hotel Tioga Paseo de Los Turistas Barrio El Carmen Puntarenas, Puntarenas 60101 Costa Rica'], 20, ['Disposiciones del Rest: Ambiente familiar con los mejores platillos de nuestras costas.']]).
 
@@ -25,27 +25,27 @@ restaurante(['Caballo Blanco', costarricense, ['Puntarenas', 'Ruta #1 , Km 131 C
 
 restaurante(['El Chante Vegano', vegana, ['Alajuela', '25 mtrs Oeste de Oficina De Correos Alajuela Alajuela, 20101'], 20, ['Disposiciones del Rest: Restaurante libre de crueldad animal']]).
 
-restaurante(['Rosti', rapida, ['Cartago', '150m Este De Las Ruinas, Contiguo Al Palí, Cartago 30101.'], 20, ['Disposiciones del Rest: Disponemos de un reglamento para algunas de las promociones que ofrecemos.']]).
+restaurante(['Rosti', rapida, ['Cartago', '150m Este De Las Ruinas, Contiguo Al Pali, Cartago 30101.'], 20, ['Disposiciones del Rest: Disponemos de un reglamento para algunas de las promociones que ofrecemos.']]).
 
 restaurante(['Bocadito del Cielo', costarricense, ['Cartago', '3kms. NE. Centro Cervantes, 10, Cervantes, Alvarado, Cartago 30602.'], 60, ['Disposiciones del Rest: Restaurante familiar, no se aceptan mascotas.']]).
 
-restaurante(['La Posada', costarricense, ['Cartago', 'Ruta Nacional Primaria 10, Provincia de Cartago, Cervantes, Cartago 30602.'], 50, ['Disposiciones del Rest: Brindamos un menú virtual para que pueda ver nuestras comidas sin necesidad de haber llegado al restaurante.']]).
+restaurante(['La Posada', costarricense, ['Cartago', 'Ruta Nacional Primaria 10, Provincia de Cartago, Cervantes, Cartago 30602.'], 50, ['Disposiciones del Rest: Brindamos un menu virtual para que pueda ver nuestras comidas sin necesidad de haber llegado al restaurante.']]).
 
-restaurante(['Mi Tierra', costarricense, ['Guanacaste', '2 Km Este, carretera al Volcán Rincon de la Vieja, Guanacaste 30701.'], 20, ['Disposiciones del Rest: Lo mejor de la comida Costarricense!.']]).
+restaurante(['Mi Tierra', costarricense, ['Guanacaste', 'El Guanacaste, G73J+WP8, Plazuela, Provincia de Guanacaste.'], 20, ['Disposiciones del Rest: Lo mejor de la comida Costarricense!.']]).
 
-restaurante(['Las Noches', mexicana, ['San Jose', 'Calle 40 entre Paseo Colon 50 norte del BCR, San José 10108'], 20, ['Disposiciones del Rest: Servimos platillos mexicanos con un toque auténtico.']]).
+restaurante(['Las Noches', mexicana, ['San Jose', 'Calle 40 entre Paseo Colon 50 norte del BCR, San Jose 10108'], 20, ['Disposiciones del Rest: Servimos platillos mexicanos con un toque autentico.']]).
 
-restaurante(['Sapore Trattoria', italiana, ['San Jose', 'Avenida Segunda, 1 Cuadra Al Oeste de la Plaza la Democracia Curridabat, de la POPS 75 al este, Frente al CFIA, San José 10108'], 30, ['Disposiciones del Rest: Ofrecemos también buenas opciones veganas dentro de nuestro menú.']]).
+restaurante(['Sapore Trattoria', italiana, ['San Jose', 'Avenida Segunda, 1 Cuadra Al Oeste de la Plaza la Democracia Curridabat, de la POPS 75 al este, Frente al CFIA, San Jose 10108'], 30, ['Disposiciones del Rest: Ofrecemos tambien buenas opciones veganas dentro de nuestro menu.']]).
 
-restaurante(['Okami Sushi', asiatica, ['San Jose', '200 metros sur de Casa Matute, Barrio Lujan, San Jose 10110'], 40, ['Disposiciones del Rest: Abrimos en la mañana y en la noche, con dos horas de cierre entre estos horarios, puede consultarlos en la página del restaurante.']]).
+restaurante(['Okami Sushi', asiatica, ['San Jose', '200 metros sur de Casa Matute, Barrio Lujan, San Jose 10110'], 40, ['Disposiciones del Rest: Abrimos en la mañana y en la noche, con dos horas de cierre entre estos horarios, puede consultarlos en la pagina del restaurante.']]).
 
-restaurante(['Tico Burguesas', rapida, ['San Jose', '1 Calle 9, El Carmen, San José, 10101'], 30, ['Disposiciones del Rest: Contamos con un horario de 24 horas.']]).
+restaurante(['Tico Burguesas', rapida, ['San Jose', '1 Calle 9, El Carmen, San Jose, 10101'], 30, ['Disposiciones del Rest: Contamos con un horario de 24 horas.']]).
 
-restaurante(['La Parrillita de Pepe', rapida, ['Heredia', 'Heredia centro, Heredia 40101'], 20, ['Disposiciones del Rest: Opciones de comida colombiana en nuestro menú y el restarurante se mantiene abierto hasta tarde']]).
+restaurante(['La Parrillita de Pepe', rapida, ['Heredia', 'Heredia centro, Heredia 40101'], 20, ['Disposiciones del Rest: Opciones de comida colombiana en nuestro menu y el restarurante se mantiene abierto hasta tarde']]).
 
 restaurante(['Nonnos Pizzeria', italiana, ['Heredia', 'Del Banco Nacional 225 Metros Al Este, Heredia 40101'], 30, ['Disposiciones del Rest: Opciones de comida vegana y vegetariana, gran experiencia en hacer pizzas']]).
 %                   ______________________________________________________________________________
-%__________________/ Menú de cada restaurante
+%__________________/ Menu de cada restaurante
 
 % forma --> menu([platillo, restaurante, ['Sabores']]).
 %se agrega el singular y el plural para que sean reconocidos
@@ -114,7 +114,7 @@ menu(gaseosa, 'Rosti', [sprite, 'big cola', fanta]).
 
 menu(desayuno, 'Bocadito del Cielo', ['pinto', 'tostadas con carne de soja']).
 menu(almuerzo, 'Bocadito del Cielo', ['filet de res en salsa de hongos kallampa', 'trucha en salsa de limon', 'albondigas de pollo en salsa blanca', 'pollo al horno']).
-menu(postre, 'Bocadito del Cielo', ['yogurt con chia', 'manzanas asadas', 'piñas asadas', 'pie de limón de la casa']).
+menu(postre, 'Bocadito del Cielo', ['yogurt con chia', 'manzanas asadas', 'piñas asadas', 'pie de limon de la casa']).
 menu(fresco, 'Bocadito del Cielo', [tamarindo, soya, cebada, cereza]).
 
 menu(desayuno, 'La Posada', ['gallo pinto con huevo', 'huevos rancheros','omelette jamon y queso','desayuno posada']).
