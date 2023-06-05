@@ -147,7 +147,7 @@ menu(almuerzo, 'Tico Burguesas', [casado, 'arroz con pollo', 'carne en salsa']).
 menu(tacos, 'Tico Burguesas', [crema,  chan, gaseosas]).
 
 menu(hamburguesa, 'La Parrillita de Pepe', [sencilla, quesoburguesa, especial, doble]).
-menu(almuerzo, 'La Parrillita de Pepe', ['almuerzo tipico montañero', 'bandeja paisa', mondongo,'carnes a la parrilla']).
+menu(almuerzo, 'La Parrillita de Pepe', ['almuerzo tipico ', 'bandeja paisa', mondongo,'carnes a la parrilla']).
 menu(fresco, 'La Parrillita de Pepe', [naturales, gaseosas, calientes, licores]).
 
 menu(pizza, 'Nonnos Pizzeria', ['chicken pesto', 'chicken alfredo','buffalo chikken','sloppy joe', greek]).
