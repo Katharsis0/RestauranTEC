@@ -244,6 +244,8 @@ verbo([quiero|O],O).
 verbo(['Quiero'|O],O).
 verbo([quiere|O],O).
 verbo(['Quiere'|O],O).
+verbo([quisiera|O],O).
+verbo(['Quisiera'|O],O).
 verbo([quisieramos|O],O).
 verbo(['Quisieramos'|O],O).
 verbo([deseamos|O],O).

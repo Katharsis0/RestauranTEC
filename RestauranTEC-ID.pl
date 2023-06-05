@@ -39,7 +39,7 @@ analizar_input(Input) :-
 
 %Analizar segun restaurante -> mostrar direccion 
 analizar_input(Input) :-
-    (miembro("direccion", Input); miembro("donde", Input); miembro("ubicacion", Input)),
+    (miembro("direccion", Input); miembro("donde", Input);miembro("se ubica", Input); miembro("ubicacion", Input);miembro("Donde", Input)),
     restaurante([Restaurante, _, Direccion, _, _]), 
     sub_string(Input, _, _, _, Restaurante),
     write(Direccion), nl, !.
@@ -91,7 +91,7 @@ analizar_input(Input) :-
     write(Disposicion), nl, !.
 
 analizar_input(Input) :-
-    write("Lo siento, no entiendo que quieres decir con "), write(Input), 
+    write("Lo siento, no entiendo que quieres decir con "), write(Input),nl, 
     write("Por favor ingresa una opcion valida"), nl, !.
 
 %Si el usuario desea una recomendacion, inicia un chat de preguntas
